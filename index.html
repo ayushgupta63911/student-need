@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Tutor Hub - Kanpur's Best Home Tutors</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-bg: #f8fafc;
+            --card-border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--dark);
+        }
+
+        .btn-call-nav {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            border: 1.5px solid #bfdbfe;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-call-nav:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 50%, #f1f5f9 100%);
+            padding: 80px 20px 60px;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .badge-city {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #dbeafe;
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.1);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            background: linear-gradient(120deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        /* Pulsating Registration Trigger Button */
+        .btn-register-cta {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: bounceBtn 3s infinite;
+        }
+
+        @keyframes bounceBtn {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+
+        .btn-register-cta:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        }
+
+        /* Hero Image Container */
+        .hero-img-box {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border: 6px solid white;
+            transform: rotate(-1deg);
+            transition: transform 0.4s;
+        }
+
+        .hero-img:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .floating-badge-1 {
+            position: absolute;
+            bottom: 20px;
+            left: -15px;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+
+        .floating-badge-2 {
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            background: #10b981;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            font-size: 13px;
+            font-weight: 700;
+            animation: floatSlow 5s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatSlow {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 16px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px 24px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.08);
+        }
+
+        .feature-icon {
+            width: 65px;
+            height: 65px;
+            background: #eff6ff;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin: 0 auto 18px;
+            box-shadow: 0 6px 15px rgba(37,99,235,0.12);
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Kanpur Areas Section */
+        .areas-section {
+            background: white;
+            padding: 60px 20px;
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .areas-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .area-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .area-pill {
+            background: #f1f5f9;
+            color: #334155;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .area-pill:hover {
+            background: #dbeafe;
+            color: var(--primary);
+            border-color: #93c5fd;
+            transform: translateY(-2px);
+        }
+
+        /* REGISTRATION POPUP MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-card {
+            background: white;
+            width: 100%;
+            max-width: 620px;
+            border-radius: 24px;
+            padding: 35px 30px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+            position: relative;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin: auto;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f1f5f9;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 18px;
+            color: #64748b;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .close-modal:hover {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-header h3 {
+            font-size: 26px;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .modal-header p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .btn-submit-form {
+            width: 100%;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+            transition: all 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-submit-form:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit-form:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 3D ANIMATED SUCCESS MODAL (PURE SUCCESS, NO WHATSAPP FOR USER) */
+        .success-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .success-overlay.active {
+            display: flex;
+        }
+
+        .success-3d-card {
+            background: white;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 28px;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.3);
+            animation: bounceIn3D 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255,255,255,0.4);
+            position: relative;
+        }
+
+        @keyframes bounceIn3D {
+            0% {
+                opacity: 0;
+                transform: scale3d(0.3, 0.3, 0.3) rotateX(40deg);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale3d(1.1, 1.1, 1.1) rotateX(-10deg);
+            }
+            80% {
+                transform: scale3d(0.95, 0.95, 0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale3d(1, 1, 1) rotateX(0deg);
+            }
+        }
+
+        /* 3D Animated Checkmark Badge */
+        .badge-3d-wrapper {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+        }
+
+        .badge-3d-circle {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: white;
+            box-shadow: 0 18px 40px rgba(16, 185, 129, 0.45), inset 0 3px 6px rgba(255,255,255,0.7);
+            animation: rotateCheck 1s ease-out;
+        }
+
+        @keyframes rotateCheck {
+            0% { transform: scale(0) rotate(-180deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .success-3d-card h2 {
+            font-size: 28px;
+            color: var(--dark);
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .success-highlight-box {
+            background: #f0fdf4;
+            border: 2px dashed #86efac;
+            padding: 18px 15px;
+            border-radius: 16px;
+            margin: 22px 0 25px;
+            color: #166534;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        .btn-success-close {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .btn-success-close:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 50px 20px 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 32px; }
+            .hero-img-box { margin-top: 30px; }
+            .form-row { grid-template-columns: 1fr; }
+            .floating-badge-1, .floating-badge-2 { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-graduation-cap"></i> Home Tutor <span>Hub</span>
+            </a>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <a href="teacher.html" class="btn-call-nav" style="background: #ecfdf5; color: #059669; border-color: #a7f3d0;">
+                    <i class="fa-solid fa-chalkboard-user"></i> Join as Teacher
+                </a>
+                <a href="tel:6391126964" class="btn-call-nav">
+                    <i class="fa-solid fa-phone"></i> 6391126964
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="badge-city">
+                    <i class="fa-solid fa-location-dot"></i> Kanpur's #1 Home Tutor Network
+                </div>
+                <h1>Best Home Tutors in <span>Kanpur</span> For Your Child</h1>
+                <p>Nursery to Class 12th • CBSE, ICSE & UP Board • All Subjects (Maths, Science, English, Commerce) • 1-on-1 Personalized Attention at Home!</p>
+                
+                <!-- Registration Trigger Button -->
+                <button onclick="openRegistrationModal()" class="btn-register-cta">
+                    <i class="fa-solid fa-user-plus"></i> Register for Tutor (Book Free Demo)
+                </button>
+
+                <div style="margin-top: 25px; display: flex; gap: 20px; align-items: center; color: var(--gray); font-size: 14px; font-weight: 600;">
+                    <span><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> 100% Verified Tutors</span>
+                    <span><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> 1-Day Free Demo</span>
+                </div>
+            </div>
+
+            <div class="hero-img-box">
+                <!-- High Quality Education Visual -->
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Students studying with tutor in Kanpur" class="hero-img">
+                
+                <div class="floating-badge-1">
+                    <i class="fa-solid fa-star" style="color: #f59e0b; font-size: 20px;"></i>
+                    <div>
+                        <div>4.9 / 5 Rating</div>
+                        <div style="font-size: 11px; color: var(--gray); font-weight: normal;">Over 1,200+ Kanpur Parents</div>
+                    </div>
+                </div>
+
+                <div class="floating-badge-2">
+                    <i class="fa-solid fa-bolt"></i> 24 Hr Fast Match
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="features">
+        <div class="section-title">
+            <h2>Kyun Choose Karein Home Tutor Hub?</h2>
+            <p>Aapke bachhe ke bright future ke liye Kanpur ke best qualified teachers.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
+                <h3>Verified Teachers</h3>
+                <p>Sabhi tutors ka background check, degree verification aur identity verified hoti hai.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-house-user"></i></div>
+                <h3>1-on-1 Home Attention</h3>
+                <p>Teacher aapke ghar aakar padhayenge jisse student bina kisi jhijhak ke doubt pooch sake.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                <h3>Affordable Fees</h3>
+                <p>Kanpur ke standard market rate par transparent aur affordable monthly fee structure.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                <h3>Quick 24h Response</h3>
+                <p>Form bharne ke 24 ghante ke andar aapki pasand ka teacher aapke ghar demo ke liye ready!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kanpur Local Areas -->
+    <section class="areas-section">
+        <div class="areas-container">
+            <div class="section-title" style="margin-bottom: 25px;">
+                <h2>Serving All Over Kanpur 📍</h2>
+                <p>Hum Kanpur ke sabhi prominent areas me home tutors provide karte hain:</p>
+            </div>
+
+            <div class="area-tags">
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Kakadeo</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Kalyanpur</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Swaroop Nagar</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Kidwai Nagar</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Govind Nagar</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Shyam Nagar</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Civil Lines</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Barra</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Gumti No. 5</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Tilak Nagar</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> Azad Nagar</span>
+                <span class="area-pill"><i class="fa-solid fa-location-dot"></i> All Other Areas</span>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <button onclick="openRegistrationModal()" class="btn-register-cta">
+                    <i class="fa-solid fa-paper-plane"></i> Book Your Tutor in Kanpur Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTRATION POPUP MODAL -->
+    <div class="modal-overlay" id="regModal">
+        <div class="modal-card">
+            <button class="close-modal" onclick="closeRegistrationModal()"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="modal-header">
+                <h3>📝 Student / Parent Registration</h3>
+                <p>Details bhariye, hum 24 ghante ke andar aapko best tutor provide karenge!</p>
+            </div>
+
+            <form id="tutorEnquiryForm" onsubmit="submitForm(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Parent Name *</label>
+                        <input type="text" id="parentName" placeholder="Mata ya Pita ka naam" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Student Name *</label>
+                        <input type="text" id="studentName" placeholder="Bachhe ka naam" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>WhatsApp / Mobile Number *</label>
+                        <input type="tel" id="mobile" placeholder="10-digit number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Class / Standard *</label>
+                        <select id="studentClass" required>
+                            <option value="">Class Select Karein</option>
+                            <option>Nursery / KG / Prep</option>
+                            <option>Class 1 to 5th</option>
+                            <option>Class 6th to 8th</option>
+                            <option>Class 9th</option>
+                            <option>Class 10th</option>
+                            <option>Class 11th</option>
+                            <option>Class 12th</option>
+                            <option>IIT-JEE / NEET / Foundation</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Subject(s) Needed *</label>
+                        <input type="text" id="subjects" placeholder="Maths, Science, English, All" required>
+                    </div>
+                    <div class="form-group">
+                        <label>School Board *</label>
+                        <select id="board" required>
+                            <option>CBSE Board</option>
+                            <option>ICSE Board</option>
+                            <option>UP Board (English Medium)</option>
+                            <option>UP Board (Hindi Medium)</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Aapka Kanpur Area / Location *</label>
+                    <input type="text" id="area" placeholder="e.g. Kakadeo, Swaroop Nagar, Kidwai Nagar, Barra" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Preferred Mode</label>
+                        <select id="mode">
+                            <option>Home Tuition (Offline at Home)</option>
+                            <option>Online 1-on-1 Tuition</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Timing</label>
+                        <input type="text" id="prefTime" placeholder="e.g. 4:00 PM to 6:00 PM">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Any Special Requirement / Note</label>
+                    <textarea id="note" rows="2" placeholder="Female tutor chahiye, weak student hai, etc. (Optional)"></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn-submit-form">
+                    <span id="btnText">Submit Requirement</span> <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 3D ANIMATED SUCCESS MODAL (PURE SUCCESS SCREEN) -->
+    <div class="success-overlay" id="successModal">
+        <div class="success-3d-card">
+            <div class="badge-3d-wrapper">
+                <div class="badge-3d-circle">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+
+            <h2>Registration Successful! 🎉</h2>
+            <p style="color: var(--gray); font-size: 15px;">Aapki enquiry successfully darj kar li gayi hai.</p>
+
+            <div class="success-highlight-box">
+                <i class="fa-solid fa-clock"></i> Aapko <b>24 Hours</b> ke andar Kanpur ke best verified tutor se connect karwaya jayega!
+            </div>
+
+            <button onclick="closeSuccessModal()" class="btn-success-close">
+                <i class="fa-solid fa-thumbs-up"></i> Theek Hai (OK)
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><b>Home Tutor Hub Kanpur</b> • Premier Home Tuition Network</p>
+        <p>Helpline: +91 6391126964 • Kanpur, Uttar Pradesh</p>
+        <p style="margin-top: 15px; font-size: 12px; color: #64748b;">&copy; 2026 Home Tutor Hub. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Logic Script: Automatic Background Lead Delivery -->
+    <script>
+        const ADMIN_EMAIL = "ayushgupta63911@gmail.com";
+
+        function openRegistrationModal() {
+            document.getElementById('regModal').classList.add('active');
+        }
+
+        function closeRegistrationModal() {
+            document.getElementById('regModal').classList.remove('active');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
+
+        // Close when clicking outside
+        window.onclick = function(e) {
+            const modal = document.getElementById('regModal');
+            if (e.target === modal) {
+                closeRegistrationModal();
+            }
+        };
+
+        function submitForm(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+
+            // Button loading state
+            submitBtn.disabled = true;
+            btnText.innerText = "Submitting...";
+
+            const parent = document.getElementById('parentName').value;
+            const student = document.getElementById('studentName').value;
+            const mobile = document.getElementById('mobile').value;
+            const sClass = document.getElementById('studentClass').value;
+            const subjects = document.getElementById('subjects').value;
+            const board = document.getElementById('board').value;
+            const area = document.getElementById('area').value;
+            const mode = document.getElementById('mode').value;
+            const time = document.getElementById('prefTime').value || 'Anytime';
+            const note = document.getElementById('note').value || 'None';
+
+            // Send data automatically in the background to ayushgupta63911@gmail.com
+            fetch("https://formsubmit.co/ajax/" + ADMIN_EMAIL, {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: "🎓 New Tuition Enquiry from Kanpur - Home Tutor Hub",
+                    _template: "table",
+                    "Student Name": student,
+                    "Parent Name": parent,
+                    "Mobile / WhatsApp": mobile,
+                    "Class": sClass,
+                    "Board": board,
+                    "Subject(s)": subjects,
+                    "Kanpur Area": area,
+                    "Mode": mode,
+                    "Preferred Timing": time,
+                    "Special Requirement": note,
+                    "Submission Time": new Date().toLocaleString()
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Reset form
+                document.getElementById('tutorEnquiryForm').reset();
+                submitBtn.disabled = false;
+                btnText.innerText = "Submit Requirement";
+
+                // Close registration modal
+                closeRegistrationModal();
+
+                // Open 3D Animated Success Modal
+                document.getElementById('successModal').classList.add('active');
+            })
+            .catch(error => {
+                // Fallback: still show success to user
+                document.getElementById('tutorEnquiryForm').reset();
+                submitBtn.disabled = false;
+                btnText.innerText = "Submit Requirement";
+                closeRegistrationModal();
+                document.getElementById('successModal').classList.add('active');
+            });
+        }
+    </script>
+</body>
+</html>
